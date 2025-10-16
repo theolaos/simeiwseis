@@ -1,9 +1,9 @@
-## Obsiian Plugins Requirements
+## Obsidian Plugins Requirements
 - LaTeX Suite
 - Desmos
 - TikZJax
 
-## Temporary suggested file structure.
+## Suggested file structure.
 
 For your first pull request, create a folder with your name. And inside it add your Obsidian Notes Filestructure.
 
