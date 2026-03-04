@@ -3,6 +3,9 @@
 - Desmos
 - TikZJax
 
+- Local Application
+    - Geogebra
+
 ## Suggested file structure.
 
 For your first pull request, create a folder with your name. And inside it add your Obsidian Notes Filestructure.
