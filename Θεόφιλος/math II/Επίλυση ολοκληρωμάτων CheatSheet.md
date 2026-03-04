@@ -39,9 +39,14 @@ $$\sin x = \frac{u^2}{1+u^2}, \cos x = \frac{1}{1+u^2}$$
 Τριγωνομετρικές ταυτότητες:
 $$\sin^2x = \frac{1}{2}(1-\cos 2x)$$
 $$\cos^2x = \frac{1}{2}(1+\cos 2x)$$
-$$\sin x\cos y = \frac{1}{2}(\sin (x-y) - \sin(x+y))$$$$\cos x\cos y = \frac{1}{2}(\cos (x-y) + \cos(x+y))$$
+$$\sin x\cos y = \frac{1}{2}(\sin (x-y) - \sin(x+y))$$
+
+$$\cos x\cos y = \frac{1}{2}(\cos (x-y) + \cos(x+y))$$
+
 $$\sin x\sin y = \frac{1}{2}(\cos (x-y) - \cos(x+y))$$
+
 $$\cos(x+y) = \cos x\cos y - \sin x\sin y$$
+
 $$\sin(x+y) = \sin x\cos y + \cos x\sin y$$
 
 
