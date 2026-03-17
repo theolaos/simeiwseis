@@ -1,14 +1,19 @@
-# 📚 Σημειώσεις Πρώτου Εξαμήνου - ΜΠΗΣ (ΔΙ.ΠΑ.Ε)
+# 📚 Σημειώσεις - ΜΠΗΣ (ΔΙ.ΠΑ.Ε)
 
 Καλώς ήρθατε στο αποθετήριο μου (Ραφαήλ Παλαλάκης) για τις σημειώσεις του πρώτου εξαμήνου του τμήματος ΜΠΗΣ! Εδώ θα βρείτε τις σημειώσεις μου για τα παρακάτω μαθήματα:
 
 ## Μαθήματα 🏫
 
+## Εξάμηνο 1
 1. **Μαθηματικά Ι** 📐
 2. **Ηλεκτρονική Φυσική** ⚡🌌
 3. **Εισαγωγή στην Επιστήμη των Υπολογιστών** 💻 (Δεν υπάρχουν ακόμα σημειώσεις)
 4. **Δομημένος Προγραμματισμός** 🖥️ (Δεν υπάρχουν ακόμα σημειώσεις)
 5. **Κυκλώματα Συνεχούς Ρεύματος** 🔌
+
+## Εξαμηνο 2
+1. **Μαθηματικα II** 📐
+2. **Αντικειμενοστρεφής Προγραματισμός** 🖥️ 
 
 ## Περιγραφή 📄
 
@@ -18,6 +23,11 @@
 
 Αυτά τα link οδηγούν στο δικό μου fork που μπορεί να είναι πιο ενημερωμένο απο το main
 
+## Εξάμηνο Ι
 - Για τις **σημειώσεις 📐 Μαθηματικών Ι**, επισκεφτείτε [αυτόν τον φάκελο](https://github.com/raf-pllz/simeiwseis/tree/main/%CE%A1%CE%B1%CF%86%CE%B1%CE%AE%CE%BB%20%CE%A0%CE%B1%CE%BB%CE%B1%CE%BB%CE%AC%CE%BA%CE%B7%CF%82/%CE%97%CE%BB%CE%B5%CE%BA%CF%84%CF%81%CE%BF%CE%BD%CE%B9%CE%BA%CE%AE%20%CE%A6%CF%85%CF%83%CE%B9%CE%BA%CE%AE%20%CE%99).
 - Για τις **σημειώσεις ⚡🌌 Ηλεκτρονικής-Φυσικής**, επισκεφτείτε [αυτόν τον φάκελο](https://github.com/raf-pllz/simeiwseis/tree/main/%CE%A1%CE%B1%CF%86%CE%B1%CE%AE%CE%BB%20%CE%A0%CE%B1%CE%BB%CE%B1%CE%BB%CE%AC%CE%BA%CE%B7%CF%82/%CE%9A%CF%85%CE%BA%CE%BB%CF%8E%CE%BC%CE%B1%CF%84%CE%B1%20%CE%A3%CF%85%CE%BD%CE%B5%CF%87%CE%BF%CF%8D%CF%82%20%CE%A1%CE%B5%CF%8D%CE%BC%CE%B1%CF%84%CE%BF%CF%82).
 - Για τις **σημειώσεις 🔌 Κυκλωμάτων Συνεχούς Ρεύματος**, επισκεφτείτε [αυτόν τον φάκελο](https://github.com/raf-pllz/simeiwseis/tree/main/%CE%A1%CE%B1%CF%86%CE%B1%CE%AE%CE%BB%20%CE%A0%CE%B1%CE%BB%CE%B1%CE%BB%CE%AC%CE%BA%CE%B7%CF%82/%CE%9A%CF%85%CE%BA%CE%BB%CF%8E%CE%BC%CE%B1%CF%84%CE%B1%20%CE%A3%CF%85%CE%BD%CE%B5%CF%87%CE%BF%CF%8D%CF%82%20%CE%A1%CE%B5%CF%8D%CE%BC%CE%B1%CF%84%CE%BF%CF%82).
+
+## Εξάμηνο ΙΙ
+- Για τις **σημειώσεις 📐 Μαθηματικών IΙ**, επισκεφτείτε [αυτόν τον φάκελο](https://github.com/raf-pllz/simeiwseis/tree/main/%CE%A1%CE%B1%CF%86%CE%B1%CE%AE%CE%BB%20%CE%A0%CE%B1%CE%BB%CE%B1%CE%BB%CE%AC%CE%BA%CE%B7%CF%82/Semester%202/Mathematics%20II/%CE%A4%CE%B6%CE%AD%CE%BA%CE%B7%CF%82)
+- Για τις **σημειώσεις 🖥️ Αντικειμενοστεφής Προγραμματισμού**, επισκεφτείτε [αυτόν τον φάκελο](https://github.com/raf-pllz/simeiwseis/tree/main/%CE%A1%CE%B1%CF%86%CE%B1%CE%AE%CE%BB%20%CE%A0%CE%B1%CE%BB%CE%B1%CE%BB%CE%AC%CE%BA%CE%B7%CF%82/Semester%202/Java(Object%20Oriented%20Programming))
