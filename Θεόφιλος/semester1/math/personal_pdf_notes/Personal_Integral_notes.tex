@@ -114,12 +114,43 @@
 Όπου το $\pi(x)$ το λύνουμε με την ιδιότητα της γραμμικότητας, και για το κλάσμα κάνουμε τα παρακάτω βήματα:
 
 \begin{itemize}
-    \item Βρίσκω τις ρίζες του $Q(x)$
+    \item Βρίσκω τις ρίζες $rho$ του $Q(x)$
     \item Αναλύω σε περιπτώσεις τις ρίζες του $Q(x)$
     \begin{itemize}
-         \item Άμα 
-    \end{itemize} 
+        \item Για κάθε μονή πραγματική ρίζα $\rho$ δημιουργώ αυτό το κλάσμα: $\frac{A}{x-\rho}$
+        \item Για κάθε άλλη πραγματική ρίζα $\rho$ με πολλαπλότητα $\kappa$: $\frac{A_1}{x-\rho} + \frac{A_2}{(x-\rho)^2} + \dots + \frac{A_\kappa}{(x-\rho)^\kappa}$
+        \item Για κάθε φανταστική ρίζα $\rho$ δεν έχω ιδέα τι κάνουμε :) 
+    \end{itemize}
+    \item Βρίσκεις τις σταθερές από τα κλάσματα με σύστημα ή με την μέθοδο/τύπο του Heavyside (καλύτερα με σύστημα άμα Μαθ. Ι)
+    \item Με την ιδιότητα της γραμμικότητας μπορείς να λύσεις τα απλοποιημένα ολοκληρώματα.
 \end{itemize}
+
+Απλό παράδειγμα:
+\[
+\int \frac{x+4}{x^2-4x+3} \, dx,
+\frac{x+4}{(x-1)(x-3)} = \frac{A}{x-1} + \frac{B}{x-3} = \frac{(A+B)x+(-3A-B)}{(x-1)(x-3)}
+\]
+
+\noindent
+\begin{minipage}[t]{0.42\textwidth}
+\[
+\begin{aligned}
+&\begin{cases} A + B = 1 \\ -3A - B = 4 \end{cases} \\[10pt]
+&\begin{cases} A = -\frac{5}{2} \\[6pt] B = \frac{7}{2} \end{cases}
+\end{aligned}
+\]
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.55\textwidth}
+\[
+\begin{aligned}
+\int \frac{x+4}{x^2-4x+3} \, dx &= \int \left( -\frac{5}{2}\frac{1}{x-1} + \frac{7}{2}\frac{1}{x-3} \right) dx \\
+&= -\frac{5}{2} \int \frac{1}{x-1} \, dx + \frac{7}{2} \int \frac{1}{x-3} \, dx \\
+&= -\frac{5}{2} \ln|x-1| + \frac{7}{2} \ln|x-3| + c
+\end{aligned}
+\]
+\end{minipage}
+
 
 \subsection*{Βασικά Τριγωνομετρικά Ολοκληρώματα}
 \hrule
@@ -180,26 +211,27 @@ x = \frac{a}{b} \sec \theta,\ \ \ dx = \frac{a}{b}\sec\theta\tan\theta d\theta
 \hrule
 \vspace{0.5em}
 \[
-\sin^2 x = \frac{1}{2}(1-\cos 2x)
+\sin^2 A = \frac{1}{2}(1-\cos 2A)
 \]
 \[
-\cos^2 x = \frac{1}{2}(1+\cos 2x)
+\cos^2 A = \frac{1}{2}(1+\cos 2A)
 \]
 \[
-\sin x \cos y = \frac{1}{2}(\sin(x-y) + \sin(x+y))
+\cos(A+B) = \cos A \cos B - \sin A \sin B
 \]
 \[
-\cos x \cos y = \frac{1}{2}(\cos(x-y) + \cos(x+y))
+\sin(A+B) = \sin A \cos B + \cos A \sin B
 \]
 \[
-\sin x \sin y = \frac{1}{2}(\cos(x-y) - \cos(x+y))
+\sin A \cos B = \frac{1}{2}(\sin(A-B) + \sin(A+B))
 \]
 \[
-\cos(x+y) = \cos x \cos y - \sin x \sin y
+\cos A \cos B = \frac{1}{2}(\cos(A-B) + \cos(A+B))
 \]
 \[
-\sin(x+y) = \sin x \cos y + \cos x \sin y
+\sin A \sin B = \frac{1}{2}(\cos(A-B) - \cos(A+B))
 \]
+
 
 \subsection*{Βασικά Αόριστα Ολοκληρώματα}
 \hrule
