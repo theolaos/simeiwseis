@@ -11,6 +11,7 @@
 \usepackage{multirow}
 \usepackage[a4paper, margin=1.8cm]{geometry}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhf{} 
@@ -96,6 +97,14 @@
 
 Οπότε απλοποιούνται και έχουμε ένα σχετικά απλό ολοκλήρωμα.
 
+\subsubsection*{Μαθηματικό τρικ (trick):}
+
+Μπορείς να κάνεις αντικατάσταση για μεταβλητής για να δημιουργήσεις μια παραγοντοποίηση που μπορεί να σε φέρει πιο κοντά σε κάποιον
+γνωστό βασικό τύπο ολοκλήρωσεις
+
+\paragraph{Παράδειγμα:}
+Δες αυτήν την \hyperlink{target_below}{απόδειξη}. 
+
 \subsection*{Ολοκληρώματα Ρητών Συναρτήσεων}
 \hrule
 \vspace{0.5em}
@@ -119,8 +128,10 @@
     \begin{itemize}
         \item Για κάθε μονή πραγματική ρίζα $\rho$ δημιουργώ αυτό το κλάσμα: $\frac{A}{x-\rho}$
         \item Για κάθε άλλη πραγματική ρίζα $\rho$ με πολλαπλότητα $\kappa$: $\frac{A_1}{x-\rho} + \frac{A_2}{(x-\rho)^2} + \dots + \frac{A_\kappa}{(x-\rho)^\kappa}$
-        \item Για κάθε φανταστική ρίζα $\rho$ δεν έχω ιδέα τι κάνουμε :) 
+        \item Για κάθε φανταστική ρίζα $\rho$ δημιουργώ αυτό το κλάσμα: $\frac{A}{ax^2 + bx + c}$
+        \item Για κάθε φανταστική ρίζα $\rho$ με πολλαπλότητα $\kappa$: $ \frac{A_1 x + B_1}{ax^2 + bx + c} + \frac{A_2 x + B_2}{(ax^2 + bx + c)^2} + \dots + \frac{A_k x + B_k}{(ax^2 + bx + c)^{\kappa}}$
     \end{itemize}
+    \subitem ΠΡΟΣΟΧΗ: Τα $A$ που γράφω είναι σταθερές τιμές, και διαφορετικά μεταξύ τους!
     \item Βρίσκεις τις σταθερές από τα κλάσματα με σύστημα ή με την μέθοδο/τύπο του Heavyside (καλύτερα με σύστημα άμα Μαθ. Ι)
     \item Με την ιδιότητα της γραμμικότητας μπορείς να λύσεις τα απλοποιημένα ολοκληρώματα.
 \end{itemize}
@@ -150,6 +161,53 @@
 \end{aligned}
 \]
 \end{minipage}
+
+\subsubsection*{Περιπτώσεις όταν Φανταστική Ρίζα}
+
+Σε αυτήν την περίπτωση αναφέρομαι στο πως να λυθεί το ολοκλήρωμα που έχει στον παρονο\-μαστή του τριώνυμο που
+έχει φανταστική ρίζα (πιθανότατα να εμφανιστεί από την παραπάνω λύση).
+
+\begin{itemize}
+    \item \textbf{Δημιουργία Παραγώγου}\\
+    Ουσιαστηκά θες να δημιουργήσεις στον αριθμητή το αποτέλεσμα της παραγώγισης του παρανομαστή. Άμα το κάνεις αυτό 
+    το αποτέλεσμα θα είναι ο φυσικός λαγάριθμος.
+
+    \item \textbf{Συμπλήρωση Τετραγώνου στον Παρανομαστή}\\
+    Προσπαθείς να φέρεις τον παρανομαστή σε μορφή $(A+B)^2 + C$. Παρακάτω είναι μια περίπτωση αλλά με διαφορετικές αποδείξεις. 
+\end{itemize}
+\vspace{-0.5em}
+
+\hypertarget{target_below}{}
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\begin{align*}
+\int \frac{1}{x^2 + A} \, dx 
+&= \int \frac{1}{Au^2 + A} \cdot \sqrt{A} \, du \\
+\left[\text{\scriptsize \begin{tabular}{@{}l@{}}
+Έστω $x^2 = A u^2$ \\
+$dx = \sqrt{A} \, du$
+\end{tabular}}\right] 
+&= \sqrt{A} \int \frac{1}{A(u^2 + 1)} \, du \\
+&= \frac{\sqrt{A}}{A} \int \frac{1}{u^2 + 1} \, du \\
+&= \frac{\sqrt{A}}{A} \arctan(u) + C \\
+&= \frac{\sqrt{A}}{A} \arctan\left( \frac{x}{\sqrt{A}} \right) + C
+\end{align*}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\textwidth}
+\begin{align*}
+\int \frac{1}{x^2 + a^2} \, dx &= \frac{1}{a^2} \int \frac{1}{\left(\frac{x}{a}\right)^2 + 1} \, dx \\
+\left[\text{\scriptsize \begin{tabular}{@{}l@{}}
+Έστω $u = \frac{x}{a}$ \\
+$dx = a \, du$
+\end{tabular}}\right]  
+&= \frac{1}{a^2} \int \frac{1}{u^2 + 1} (a \, du) \\
+&= \frac{1}{a} \int \frac{1}{u^2 + 1} \, du \\
+&= \frac{1}{a} \arctan(u) + C \\
+&= \frac{1}{a} \arctan\left(\frac{x}{a}\right) + C 
+\end{align*}
+\end{minipage}
+
 
 
 \subsection*{Βασικά Τριγωνομετρικά Ολοκληρώματα}
@@ -186,7 +244,7 @@ dx = \frac{du}{1+u^2}, \quad \sin^2 x = \frac{u^2}{1+u^2}, \quad \cos^2 x = \fra
 x = \frac{a}{b} \sec \theta,\ \ \ dx = \frac{a}{b}\sec\theta\tan\theta d\theta
 \]
 
-Και μετά μπορεις να χρησιμοποίησεις την ταυτότητα:
+Και μετά μπορείς να χρησιμοποίησεις την ταυτότητα:
 \[
 \sec^2 \theta - 1 = \tan^2\theta
 \]
@@ -203,7 +261,7 @@ x = \frac{a}{b} \sec \theta,\ \ \ dx = \frac{a}{b}\sec\theta\tan\theta d\theta
 \tan\theta = \frac{\sqrt{(bx)^2 + a^2}}{a}
 \]
 \[
-\theta = \cos^{-1}\left(\frac{a}{bx}\right) \text{ή} \theta = \sec^{-1}\left(\frac{bx}{a}\right) 
+\theta = \cos^{-1}\left(\frac{a}{bx}\right) \ \text{ή}\ \ \theta = \sec^{-1}\left(\frac{bx}{a}\right) 
 \]
 
 
