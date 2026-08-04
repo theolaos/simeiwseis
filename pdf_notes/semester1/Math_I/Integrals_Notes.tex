@@ -1,0 +1,194 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setotherlanguage{english}
+\setmainfont{LiberationSans} % or another font that supports Greek
+\usepackage{amsmath, amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage[a4paper, margin=1.8cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{} 
+\fancyfoot[L]{\footnotesize Theolaos}
+\fancyfoot[R]{\small \thepage}
+
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
+
+\setlist[itemize]{left=1.5em, label=\textbullet}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Σημειώσεις Μαθηματικα Ι}\\[1ex]
+    \large Μέθοδοι Ολοκλήρωσεις
+\end{center}
+
+\subsection*{Κατά παράγοντες:}
+\[
+\int f(x)g(x)\,dx = \int F'(x)g(x)\,dx = F(x)g(x) - \int F(x)g'(x)\,dx
+\]
+
+\subsection*{Με αντικατάσταση:}
+Έστω $f(x) = u$, τότε:
+\[
+\frac{du}{dx} = u' \iff dx = \frac{du}{u'}
+\]
+και απλά αντικαθιστώ στη συνέχεια στο ολοκλήρωμα.
+
+ΠΡΟΣΟΧΗ: αντικαταστείς μέσα στο ολοκλήρωμα είτε με τον στόχο για απαλοιφή του $u'$ ή για να αντικαταστήσεις 
+στο αποτέλεσμα του $u'$ να το αντικαταστήσεις με $u$ που είχες θέσει. π.χ. 
+\[
+\int \cos\sqrt{x}\,dx \underset{u = \sqrt{x}}{=} \int \cos{u}\,2u\,du 
+\]
+που έπειτα το παραπάνω μπορείς να το λύσεις με κατά παράγοντες.
+
+\subsubsection*{Μαθηματικό τρικ (trick):}
+
+Κάποιες φορές στα κλάσματα μπορώ να αντικαταστήσω με σκοπό να βγάλω τη μεταβλητή στον αριθμητή ή και στον παρονομαστή.
+
+\paragraph{Παράδειγμα:}
+\[
+\int \frac{x}{\sqrt{1-x^2}}\,dx
+\]
+Έστω $u = 1-x^2$, οπότε $du = -2x\,dx \iff dx = -\frac{du}{2x}$.
+
+Άρα:
+\[
+\int \frac{x}{\sqrt{u}} \cdot \frac{du}{-2x} = \int \frac{1}{\sqrt{u}} \cdot \frac{du}{-2} = -\int \frac{du}{2\sqrt{u}}
+\]
+Και φυσικά η λύση θα είναι:
+\[
+-\sqrt{u} + C
+\]
+
+\subsubsection*{Μαθηματικό τρικ (trick):}
+
+Επίσης σαν τρικ μπορείς να χρησιμοποίησεις την παραγοντοποίηση υπερ σου για να πετύχεις τον παραπάνω τρικ.
+
+\paragraph{Παράδειγμα:}
+\[
+\int \frac{1}{x^2\sqrt{x^2 - 1}}\,dx
+\]
+
+Βλέπουμε πως πάνω στον αριθμητή δεν έχουμε κάποιο $x^2$ για να μας σώσει σε κάποια αντικα\-τάσταση
+αλλά θα μπορούσαμε να παραγοντοποίησουμε το $x^2-1$ έτσι ώστε να μπορούμε να πάμε ένα $x^a$ κάπως στον αριθμητή ώστε να μας βοηθήσει 
+στην μελλοντική αντικατάσταση.
+
+Άρα:
+\[
+\int \frac{1}{x^2\sqrt{x^2\left(1 - \frac{1}{x^2}\right)}}\,dx = \int \frac{1}{x^3\sqrt{1 - x^{-2}}}\,dx
+\]
+
+Εδώ ξεκινάει το τρικ. Άμα θέσουμε $u=x^{-2}$, μπορούμε να φανταστούμε πως η παράγωγος του θα είναι $u' = -2x^{-2 - 1} = -2x^{-3}$.
+Άρα άμα προχωρήσω με την αντικατάσταση θα έχω:
+
+\[
+\int \frac{1}{x^3\sqrt{1 - u}}\,\frac{du}{-2x^{-3}} = \int \frac{x^3}{-2x^3\sqrt{1 - u}}\,du = \int \frac{1}{-2\sqrt{1 - u}}\,du
+\]
+
+Οπότε απλοποιούνται και έχουμε ένα σχετικά απλό ολοκλήρωμα.
+
+\subsection*{Ολοκληρώματα Ρητών Συναρτήσεων}
+\hrule
+\vspace{0.5em}
+
+Αυτά τα ολοκληρώματα έχουν αυτήν την μορφή $\int \frac{P(x)}{Q(x)}\,dx$ μορφή, όπου $P(x)$ και $Q(x)$ είναι πολυώνυμα.
+
+\
+
+Άμα ο βαθμός του $P(x)$ είναι μεγαλύτερος από αυτόν του $Q(x)$ τότε κάνουμε την πολυώνυμική διαίρεση και θα έχουμε με τον τύπο
+της ευκλείδιας διαίρεσης:
+
+\[
+\Delta(x) = \delta(x)\cdot\pi(x) + \upsilon(x) \underset{\Delta(x) = P(x)\, \delta(x) = Q(x)}{\text{και άρα}} \int\frac{P(x)}{Q(x)}\,dx = \int\frac{Q(x)\cdot\pi(x) + \upsilon(x)}{Q(x)} = \int \pi(x) + \frac{\upsilon(x)}{Q(x)}\,dx
+\]
+
+Όπου το $\pi(x)$ το λύνουμε με την ιδιότητα της γραμμικότητας, και για το κλάσμα κάνουμε τα παρακάτω βήματα:
+
+\begin{itemize}
+    \item Βρίσκω τις ρίζες του $Q(x)$
+    \item Αναλύω σε περιπτώσεις τις ρίζες του $Q(x)$
+    \begin{itemize}
+         \item Άμα 
+    \end{itemize} 
+\end{itemize}
+
+\subsection*{Βασικά Τριγωνομετρικά Ολοκληρώματα}
+\hrule
+\vspace{0.5em}
+\subsubsection*{Περίπτωση μονών δυνάμεων:}
+Σε περίπτωση που έχουμε μονές δυνάμεις, π.χ. $\int f(\sin x, \cos x)\,dx$, τότε μπορούμε να εφαρμό\-σουμε την παρακάτω αντικατάσταση:
+\[
+u = \tan\frac{x}{2}
+\]
+\[
+dx = \frac{2\,du}{1 + u^2}, \quad \sin x = \frac{2u}{1+u^2}, \quad \cos x = \frac{1-u^2}{1+u^2}, \quad \tan x = \frac{2u}{1-u^2}
+\]
+
+\subsubsection*{Περίπτωση δυνάμεων εις την δευτέρα:}
+Σε περίπτωση που έχεις δύναμη εις την δύο, π.χ. $\int f(\sin^2 x, \cos^2 x)\,dx$, τότε κάνεις την παρακά\-τω αντικατάσταση:
+\[
+u = \tan x
+\]
+\[
+dx = \frac{du}{1+u^2}, \quad \sin^2 x = \frac{u^2}{1+u^2}, \quad \cos^2 x = \frac{1}{1+u^2}
+\]
+\subsection*{Υπερβολικά τριγωνομετρικά ολοκληρώματα}
+\hrule
+\vspace{0.5em}
+
+
+\subsection*{Τριγωνομετρικές Ταυτότητες}
+\hrule
+\vspace{0.5em}
+\[
+\sin^2 x = \frac{1}{2}(1-\cos 2x)
+\]
+\[
+\cos^2 x = \frac{1}{2}(1+\cos 2x)
+\]
+\[
+\sin x \cos y = \frac{1}{2}(\sin(x-y) + \sin(x+y))
+\]
+\[
+\cos x \cos y = \frac{1}{2}(\cos(x-y) + \cos(x+y))
+\]
+\[
+\sin x \sin y = \frac{1}{2}(\cos(x-y) - \cos(x+y))
+\]
+\[
+\cos(x+y) = \cos x \cos y - \sin x \sin y
+\]
+\[
+\sin(x+y) = \sin x \cos y + \cos x \sin y
+\]
+
+\subsection*{Βασικά Αόριστα Ολοκληρώματα}
+\hrule
+\vspace{0.5em}
+Κάποια εξτρά χρήσιμα βασικά αόριστα ολοκληρώματα, πέρα από τα γνωστά, είναι:
+\[
+\int a^x\,dx = \frac{a^x}{\ln a} + C
+\]
+\[
+\int \frac{1}{\cos^2 x}\,dx = \tan x + C
+\]
+\[
+\int \frac{1}{\sqrt{1-x^2}}\,dx = \arcsin x + C
+\]
+\[
+\int \frac{1}{1+x^2}\,dx = \arctan x + C
+\]
+\[
+\int \frac{1}{x\sqrt{x^2-1}}\,dx = \sec^{-1} x + C
+\]
+
+\end{document}
