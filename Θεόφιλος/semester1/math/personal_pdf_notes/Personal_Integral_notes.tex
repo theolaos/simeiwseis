@@ -12,6 +12,7 @@
 \usepackage[a4paper, margin=1.8cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
+\usepackage{booktabs}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhf{} 
@@ -29,7 +30,8 @@
 
 \begin{center}
     \LARGE \textbf{Σημειώσεις Μαθηματικα Ι}\\[1ex]
-    \large Μέθοδοι Ολοκλήρωσεις
+    \large Μέθοδοι Ολοκλήρωσεις \\
+    \normalsize Βρες και άλλες σημειώσεις: \url{https://github.com/theolaos/simeiwseis}
 \end{center}
 
 \subsection*{Κατά παράγοντες:}
@@ -230,9 +232,33 @@ u = \tan x
 \[
 dx = \frac{du}{1+u^2}, \quad \sin^2 x = \frac{u^2}{1+u^2}, \quad \cos^2 x = \frac{1}{1+u^2}
 \]
+
+
 \subsection*{Υπερβολικά τριγωνομετρικά ολοκληρώματα}
 \hrule
 \vspace{0.5em}
+\subsubsection*{Τριγωνομετρικές \& Υπερβολικές Ορισμοί}
+\[
+\begin{array}{rll}
+\text{Υπερβ. Ημίτονο:} & \sinh x = \dfrac{e^x - e^{-x}}{2} & : \mathbb{R} \to \mathbb{R} \\[1.5ex]
+\text{Υπερβ. Συνημίτονο:} & \cosh x = \dfrac{e^x + e^{-x}}{2} & : \mathbb{R} \to [1, +\infty) \\[1.5ex]
+\text{Υπερβ. Εφαπτομένη:} & \tanh x = \dfrac{e^x - e^{-x}}{e^x + e^{-x}} & : \mathbb{R} \to (-1, 1) \\[1.5ex]
+\text{Υπερβ. Συνεφαπτομένη:} & \coth x = \dfrac{e^x + e^{-x}}{e^x - e^{-x}} & : \mathbb{R}^* \to (-\infty, -1) \cup (1, +\infty)
+\end{array}
+\]
+
+\subsubsection*{Τριγωνομετρικές \& Υπερβολικές Αντικαταστάσεις}
+\[
+\begin{array}{cccc}
+\toprule
+\text{Ολοκλήρωμα} & \text{Αντικατάσταση} & \text{Ρίζα} & \text{Διαφορικό ($dx$)} \\ 
+\midrule
+\int f(x, \sqrt{a^2 - x^2})\,dx & x = a \sin u & \sqrt{a^2 - x^2} = a \cos u & dx = a \cos u \, du \\[1.2ex]
+\int f(x, \sqrt{a^2 + x^2})\,dx & x = a \sinh u & \sqrt{a^2 + x^2} = a \cosh u & dx = a \cosh u \, du \\[1.2ex]
+\int f(x, \sqrt{x^2 - a^2})\,dx & x = a \cosh u & \sqrt{x^2 - a^2} = a \sinh u & dx = a \sinh u \, du \\
+\bottomrule
+\end{array}
+\]
 
 \subsection*{Υπόλοιπα τριγωνομετρικά ολοκληρώματα}
 \hrule
@@ -310,5 +336,6 @@ x = \frac{a}{b} \sec \theta,\ \ \ dx = \frac{a}{b}\sec\theta\tan\theta d\theta
 \[
 \int \frac{1}{x\sqrt{x^2-1}}\,dx = \sec^{-1} x + C
 \]
+
 
 \end{document}
