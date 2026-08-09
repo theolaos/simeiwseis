@@ -1,0 +1,194 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setotherlanguage{english}
+\setmainfont{LiberationSans} % or another font that supports Greek
+\usepackage{amsmath, amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage[a4paper, margin=1.8cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{caption}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{} 
+\fancyfoot[L]{\footnotesize Theolaos}
+\fancyfoot[R]{\small \thepage}
+
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
+
+\setlist[itemize]{left=1.5em, label=\textbullet}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Σημειώσεις Ηλεκτρονικής Φυσικής}\\[0.5ex]
+    \large Τυπολόγιο \\
+    \normalsize Βρες και άλλες σημειώσεις: \url{https://github.com/theolaos/simeiwseis}
+\end{center}
+
+\section*{Νόμος Coulomb}
+\vspace{-.4cm}
+\hrule
+\vspace{0.3cm}
+
+\begin{equation*}
+    F = k \frac{Q_1 Q_2}{r^2} \qquad \text{ή σε διανυσματική μορφή} \qquad \vec{F}_{12} = k \frac{Q_1 Q_2}{r^2} \hat{r}
+\end{equation*}
+
+\vspace{0.3cm}
+
+% Σχήμα με TikZ
+\noindent
+\begin{minipage}[c]{0.55\textwidth}
+\textbf{Επεξήγηση Μεγεθών:}
+\begin{itemize}\small
+    \item \textbf{$r$}: Απόσταση των κέντρων των φορτίων $Q_1, Q_2$.
+    \item \textbf{$\hat{r}$}: Μοναδιαίο διάνυσμα (από $Q_1 \rightarrow Q_2$).
+    \item \textbf{$\vec{F}_{12}$}: Δύναμη από το $Q_1$ στο $Q_2$.
+    \item \textbf{$k$}: Ηλεκτρική σταθερά ($k = \frac{1}{4\pi\varepsilon_0}$).
+\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.45\textwidth}
+\centering
+\vspace{0.2cm}
+\begin{tikzpicture}[scale=0.85, >=Stealth]
+    % Φορτίο Q1 (+)
+    \shade[ball color=blue!40] (0,0) circle (0.3cm);
+    \node at (0,0) [white] {\textbf{\small $+$}};
+    \node[below=5pt] at (0,0) {$Q_1$};
+
+    % Φορτίο Q2 (+)
+    \shade[ball color=blue!40] (3.5,0) circle (0.3cm);
+    \node at (3.5,0) [white] {\textbf{\small $+$}};
+    \node[below=5pt] at (3.5,0) {$Q_2$};
+
+    % Απόσταση r
+    \draw[<->, thick, dashed] (0,0.6) -- (3.5,0.6) node[midway, above] {\small $r$};
+
+    % Δυνάμεις (Απωστικές)
+    \draw[->, ultra thick, blue!70!black] (3.75,0) -- (4.8,0) node[right] {\small $\vec{F}_{12}$};
+    \draw[->, ultra thick, blue!70!black] (-0.25,0) -- (-1.3,0) node[left] {\small $\vec{F}_{21}$};
+
+    % Μοναδιαίο διάνυσμα r_hat
+    \draw[->, thick, green!50!black] (0.4, 0) -- (1.3, 0) node[above] {\small $\hat{r}$};
+\end{tikzpicture}
+
+\vspace{0.1cm}
+
+% Σχήμα 2: Ετερόσημα Φορτία (Ελκτικές Δυνάμεις)
+\begin{tikzpicture}[scale=0.85, >=Stealth]
+    % Φορτίο Q1 (+)
+    \shade[ball color=blue!40] (0,0) circle (0.3cm);
+    \node at (0,0) [white] {\textbf{\small $+$}};
+    \node[below=5pt] at (0,0) {$Q_1$};
+
+    % Φορτίο Q2 (-)
+    \shade[ball color=red!50] (3.5,0) circle (0.3cm);
+    \node at (3.5,0) [white] {\textbf{\small $-$}};
+    \node[below=5pt] at (3.5,0) {$Q_2$};
+
+    % Δυνάμεις (Ελκτικές)
+    \draw[->, ultra thick, red!70!black] (3.25,0) -- (2.2,0) node[above] {\small $\vec{F}_{12}$};
+    \draw[->, ultra thick, blue!70!black] (0.25,0) -- (1.3,0) node[above] {\small $\vec{F}_{21}$};
+\end{tikzpicture}
+\end{minipage}
+
+\section*{Ηλεκτρικό Πεδίο}
+\vspace{-.4cm}
+\hrule
+\vspace{0.3cm}
+
+\begin{equation*}
+    \vec{E} = \frac{\vec{F}}{q} \qquad \text{αλλιώς μόνο το μέτρο} \qquad E = k\frac{Q}{r^2} \qquad \text{ως πρως $F$:} \qquad  \vec{F} = q\vec{E}
+\end{equation*}
+\noindent
+\begin{minipage}[c]{0.42\textwidth}
+\textbf{Επεξήγηση Μεγεθών:}
+\begin{itemize}\small
+    \item \textbf{$\vec{E}$}: Ένταση ηλεκτρικού πεδίου.
+    \item \textbf{$Q$}: Πηγή του πεδίου (φορτίο).
+    \item \textbf{$q$}: Φορτίο δοκιμής.
+    \item \textbf{$\vec{F}$}: Ηλεκτρική δύναμη στο $q$.
+    \item \textbf{$r$}: Απόσταση από το φορτίο $Q$.
+\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.55\textwidth}
+\centering
+% Σχήματα Ηλεκτρικού Πεδίου
+\begin{tikzpicture}[scale=0.85, >=Stealth]
+    % --- Θετικό Φορτίο (+) ---
+    \begin{scope}[shift={(0,0)}]
+        % Ακτίνες πεδίου (προς τα έξω)
+        \foreach \angle in {0, 45, 90, 135, 180, 225, 270, 315} {
+            \draw[->, thick, blue!70!black] (0,0) -- (\angle:1.2);
+        }
+        % Φορτίο Q (+)
+        \shade[ball color=blue!40] (0,0) circle (0.35cm);
+        \node at (0,0) [white] {\textbf{\small $+$}};
+        \node[below=30pt] at (0,0) {\small $Q > 0$};
+    \end{scope}
+
+    % --- Αρνητικό Φορτίο (-) ---
+    \begin{scope}[shift={(3.5,0)}]
+        % Ακτίνες πεδίου (προς τα μέσα)
+        \foreach \angle in {0, 45, 90, 135, 180, 225, 270, 315} {
+            \draw[->, thick, red!70!black] (\angle:1.3) -- (\angle:0.4);
+        }
+        % Φορτίο Q (-)
+        \shade[ball color=red!50] (0,0) circle (0.35cm);
+        \node at (0,0) [white] {\textbf{\small $-$}};
+        \node[below=30pt] at (0,0) {\small $Q < 0$};
+    \end{scope}
+\end{tikzpicture}
+\end{minipage}
+
+
+
+\begin{equation*}
+    \text{Αρχή Επαλληλίας:} \ E = E_1 + E_2 + E_3 + \dots + E_n \qquad \text{όπου: $E$ πεδίο, $n$ κάποιου φορτίου} 
+\end{equation*}
+
+\vspace{-0.3cm}
+
+\begin{equation*}
+    \text{Για συνεχή κατανομή:} \ \vec{E} = \int d\vec{E} \qquad \text{όπου:} \ d\vec{E} = \frac{1}{4\pi\epsilon_0}\cdot\frac{dQ}{r^2}\hat{r} 
+\end{equation*}
+
+\section*{Πυκνότητα Φορτίου}
+\vspace{-.4cm}
+\hrule
+\vspace{0.3cm}
+
+\subsection*{Ομοιόμορφη Κατανομή}
+
+\begin{itemize}
+    \item Χωρική (όγκος) Πυκνώτητα φορτίου: $\rho = \frac{Q}{V}$ όπου είναι σε μονάδες: $\frac{C}{m^3}$
+    \item Επιφανειακή (εμβαδόν) Πυκνώτητα φορτίου: $\sigma = \frac{Q}{A}$ όπου είναι σε μονάδες: $\frac{C}{m^2}$
+    \item Γραμμική (ευθεία) Πυκνώτητα φορτίου: $\lambda = \frac{Q}{l}$ όπου είναι σε μονάδες: $\frac{C}{m}$
+\end{itemize}
+
+\subsection*{Μη-Ομοιόμορφη Κατανομή}
+\begin{itemize}
+    \item Στοιχειώδη Χωρική (όγκος) Πυκνώτητα φορτίου: $dQ = \rho dV$
+    \item Στοιχειώδη Επιφανειακή (εμβαδόν) Πυκνώτητα φορτίου: $dQ = \sigma dA$
+    \item Στοιχειώδη Γραμμική (ευθεία) Πυκνώτητα φορτίου: $dQ = \lambda dl$
+\end{itemize}
+
+\section*{Ηλεκτριοκό Πεδίο σε ομοιόμορφη κατανομή φορτίου}
+
+Έστω απόσταση από δίσκο $z$ και ακτίνα δίσκου $R$, άμα $z<<R$ τότε ισχύει ότι το Ηλ. Πεδίο είναι:
+$$E = \frac{\sigma}{2\epsilon_0}$$
+
+\end{document}
