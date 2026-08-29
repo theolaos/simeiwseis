@@ -1,0 +1,233 @@
+\documentclass[12pt,a4paper]{article}
+
+% Υποστήριξη XeLaTeX & Γραμματοσειρές
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+% Ορισμός Liberation Serif για Ελληνικά και Αγγλικά
+\setmainfont{Liberation Serif}
+
+% Μαθηματικά πακέτα
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+
+% Διαμόρφωση σελίδας
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+% Χρώματα και διακόσμηση
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Προσαρμογή επικεφαλίδων
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\titleformat{\section}{\Large\bfseries\color{black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries\color{black}}{\thesubsection}{1em}{}
+
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{} 
+\fancyfoot[L]{\footnotesize Theolaos}
+\fancyfoot[R]{\small \thepage}
+
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
+
+\setlist[itemize]{left=1.5em, label=\textbullet}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Μεθοδολογία Διαφορικών Εξισώσεων 1$^{\text{ου}}$ Βαθμού}\\[0.5ex]
+    \large Σημειώσεις Μαθηματικά ΙΙ \\
+    \normalsize Βρες και άλλες σημειώσεις: \url{https://github.com/theolaos/simeiwseis}
+\end{center}
+
+\section*{Μεθοδολογία Χωριζομένων Μεταβλητών (ΚΑΤ. 1)}
+\vspace{-1em}
+\hrule
+\vspace{1em}
+
+
+\[
+\frac{dy}{dx} = f(x,y) \iff \frac{dy}{dx} = f(x)f(y)
+\]
+
+Σκοπός μας είναι να χωρίσουμε το 2ο μέλος σε γινόμενο δύο συναρτήσεων: μία που περιέχει μόνο το $x$ και μία που περιέχει μόνο το $y$.
+
+Έπειτα διαχωρίζουμε τις μεταβλητές στα δύο μέλη:
+\[
+\frac{dy}{f(y)} = f(x)\,dx
+\]
+
+Ή ισοδύναμα, προσπαθούμε εξ αρχής να φέρουμε την εξίσωση στη μορφή:
+\[
+f(y)\,dy = f(x)\,dx
+\]
+
+Στη συνέχεια ολοκληρώνουμε και τα δύο μέλη και λύνουμε ως προς $y$.
+
+\textbf{Προσοχή:} Μην ξεχνάς τη σταθερά $+C$ στο τέλος!
+
+
+\section*{Μεθοδολογία Ομογενών Συναρτήσεων (ΚΑΤ. 2)}
+\vspace{-1em}
+\hrule
+\vspace{1em}
+
+Φέρνουμε τη ΔΕ στη μορφή $\frac{dy}{dx} = f(x,y)$ προκειμένου να ελέγξουμε αν η $f(x,y)$ είναι ομογενής.
+
+Μια συνάρτηση είναι ομογενής $n$-βαθμού όταν ισχύει:
+\[
+f(\lambda x, \lambda y) = \lambda^n f(x,y)
+\]
+
+Εφόσον ισχύει η παραπάνω ιδιότητα, ακολουθούμε τα εξής βήματα:
+\begin{enumerate}[leftmargin=*]
+    \item Θέτουμε $u = \frac{y}{x} \implies y = u \cdot x$.
+    \item Παραγωγίζουμε ως προς $x$:
+    \[
+    \frac{dy}{dx} = \frac{du}{dx} x + u
+    \]
+    \item Αντικαθιστούμε στη αρχική ΔΕ:
+    \[
+    \frac{du}{dx} x + u = f(1,u)
+    \]
+    \item Επιλύουμε τη νέα ΔΕ ως προς $u$ με τη \textbf{μέθοδο χωριζομένων μεταβλητών (ΚΑΤ. 1)}.
+\end{enumerate}
+
+\section*{Γραμμική Μεθοδολογία (ΚΑΤ. 3)}
+\vspace{-1em}
+\hrule
+\vspace{1em}
+
+Εφαρμόζεται όταν η ΔΕ έχει τη μορφή:
+\[
+\frac{dy}{dx} + P(x)y = Q(x)
+\]
+
+Η γενική λύση δίνεται απευθείας από τον τύπο:
+\[
+y = e^{-\int P(x)dx} \left( C + \int Q(x) e^{\int P(x)dx} \, dx \right)
+\]
+
+\textit{Σημείωση:} Απαιτείται μόνο ο υπολογισμός δύο ολοκληρωμάτων.
+
+\section*{Μεθοδολογία Τύπου Bernoulli (ΚΑΤ. 4)}
+\vspace{-1em}
+\hrule
+\vspace{1em}
+
+Η διαφορική εξίσωση Bernoulli έχει τη μορφή:
+\[
+\frac{dy}{dx} + P(x)y = Q(x)y^n
+\]
+
+\textbf{Ειδικές περιπτώσεις:}
+\begin{itemize}
+    \item Αν $n = 0 \implies$ Γραμμική ΔΕ (ΚΑΤ. 3).
+    \item Αν $n = 1 \implies$ Χωριζομένων Μεταβλητών (ΚΑΤ. 1).
+\end{itemize}
+
+\textbf{Γενική περίπτωση ($n \neq 0, 1$):}
+\begin{enumerate}[leftmargin=*]
+    \item Πολλαπλασιάζουμε τα δύο μέλη με $y^{-n}$:
+    \begin{equation}
+    y^{-n} \frac{dy}{dx} + P(x) y^{1-n} = Q(x)
+    \end{equation}
+    
+    \item Θέτουμε $z = y^{1-n}$ και παραγωγίζουμε ως προς $x$:
+    \[
+    \frac{dz}{dx} = (1-n) y^{-n} \frac{dy}{dx} \iff \frac{1}{1-n} \frac{dz}{dx} = y^{-n} \frac{dy}{dx}
+    \]
+    
+    \item Αντικαθιστούμε στην εξίσωση (1):
+    \[
+    \frac{dz}{dx} + (1-n)P(x)z = (1-n)Q(x)
+    \]
+    \item Η εξίσωση είναι πλέον \textbf{γραμμική} ως προς $z$ και λύνεται με τη μεθοδολογία ΚΑΤ. 3.
+\end{enumerate}
+
+\section*{Μεθοδολογία Τύπου Clairaut (ΚΑΤ. 5)}
+\vspace{-1em}
+\hrule
+\vspace{1em}
+
+Η ΔΕ Clairaut έχει τη μορφή:
+\[
+y = x y' + \phi(y')
+\]
+
+Θέτοντας $p = y'$, η εξίσωση παίρνει τη μορφή $\left( x + \phi'(p) \right) p' = 0$.
+
+\subsection*{Λύσεις της Clairaut}
+\begin{itemize}
+    \item \textbf{Γενική Λύση:} Προκύπτει για $p' = 0 \implies p = C$, οπότε:
+    \[
+    y = C x + \phi(C)
+    \]
+    \item \textbf{Ιδιάζουσες Λύσεις (Περιβάλλουσα):} Προκύπτουν από το σύστημα:
+    \[
+    x + \phi'(p) = 0 \quad \text{και} \quad y = x p + \phi(p)
+    \]
+\end{itemize}
+
+\subsection*{Βήματα Επίλυσης}
+\begin{enumerate}[leftmargin=*]
+    \item[0.] Φέρνουμε τη ΔΕ στη μορφή Clairaut.
+    \item Αναγνωρίζουμε τη συνάρτηση $\phi(x)$.
+    \item Γράφουμε τη Γενική Λύση: $y = C x + \phi(C)$.
+    \item Βρίσκουμε τις Ιδιάζουσες Λύσεις απαλείφοντας την παράμετρο $p$.
+\end{enumerate}
+
+\subsection*{Παράδειγμα (Διαφάνεια 29, Άσκηση 3)}
+
+Δίνεται η εξίσωση:
+\[
+y(y')^2 + 2xy' = y \iff (y y')^2 + 2x(y y') = y^2
+\]
+
+Θέτουμε $u = y^2 \implies u' = 2y y' \implies y y' = \frac{1}{2} u'$.
+
+Αντικαθιστώντας, παίρνουμε:
+\[
+\left( \frac{1}{2} u' \right)^2 + x u' = u \iff u = x u' + \left( \frac{u'}{2} \right)^2
+\]
+Η οποία είναι μορφής Clairaut ως προς $u$, με $\phi(t) = \left(\frac{t}{2}\right)^2$.
+
+\begin{itemize}
+    \item \textbf{Γενική Λύση ως προς $u$:}
+    \[
+    u = C x + \left(\frac{C}{2}\right)^2 \implies y^2 = C x + \left(\frac{C}{2}\right)^2
+    \]
+    
+    \item \textbf{Ιδιάζουσα Λύση:}
+    \[
+    x + \phi'(u') = 0 \iff x + \frac{u'}{2} = 0 \implies u' = -2x
+    \]
+    Αντικαθιστώντας το $u' = -2x$ στη ΔΕ:
+    \[
+    u = x(-2x) + \left(\frac{-2x}{2}\right)^2 = -2x^2 + x^2 = -x^2 \implies y^2 = -x^2
+    \]
+    (\textit{Αδύνατη στο πεδίο των πραγματικών αριθμών}).
+\end{itemize}
+
+\section*{Μεθοδολογία Τύπου Lagrange (ΚΑΤ. 6)}
+\vspace{-1em}
+\hrule
+\vspace{1em}
+
+
+Η ΔΕ του Lagrange έχει τη γενική μορφή:
+\[
+y = x \phi(y') + f(y')
+\]
+
+\end{document}
