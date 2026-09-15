@@ -157,5 +157,5 @@ $$a_t = \frac{\mathbf{v}\cdot\mathbf{a}}{v}$$
 > [!info]- Can be proven by solving for $a_t$ from the dot-product: $\mathbf{v}\cdot\mathbf{a}$
 
 $$a_n = \frac{\Vert{} \mathbf{v}\times\mathbf{a} \Vert{}}{v}$$
-> [!info]- Can be proven by solving for $a_t$ from the cross-product: $\mathbf{v}\times\mathbf{a}$
+> [!info]- Can be proven by solving for $a_n$ from the cross-product: $\mathbf{v}\times\mathbf{a}$
 
