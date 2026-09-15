@@ -89,7 +89,7 @@ ___
 Before we continue, because we are working with time, we can define speed and accelaration. Previously we traversed the path in equal distances. But now we traverse the path in equal amount of time, meaning that we can accelarate, stop etc.
 
 - ${\bf v}(t) = \dot{{\bf r}}(t)$
-- ${\bf a}(t) = \dot{{\bf v}}(t) = \dot{\dot{{\bf r}}}(t)$
+- ${\bf a}(t) = \dot{{\bf v}}(t) = \ddot{{\bf r}}(t)$
 
 #### We can write out the Tangential Vector by saying:
 $${\bf T} = \hat{{\bf u}}_t = \frac{{\bf v}}{v} $$
@@ -104,16 +104,14 @@ $${\bf N} = \hat{{\bf u}}_n = \frac{\dot{{\bf T}}}{\dot{T}}$$
 > $${\bf N} = \frac{1}{\kappa} \frac{d\mathbf{T}}{ds} = \frac{1}{\kappa} \frac{d {\bf T}}{dt} \frac{dt}{ds} = \frac{\dot{{\bf T}}}{\kappa v} \implies \kappa v \, N = \dot{T} \implies {\bf N} = \frac{\dot{{\bf T}}}{\dot{T}}$$
 
 #### The $\kappa$ variable of curvature:
-
 Now that we are working in respect to time, we can use a new formula to find $\kappa$:
 $$\kappa = \frac{\left\Vert{} {\bf v} \times {\bf a} \right\Vert{}}{v^3}$$
 > [!info]- Can be proven by solving for $\kappa$ from this cross-product: ${\bf v} \times {\bf a}$
 
 #### The $\tau$ variable of torsion:
-
 Also, now we can use a new formila to find $\tau$:
 $$\tau(t) = \frac{(\mathbf{v} \times \mathbf{a}) \cdot \dddot{\mathbf{r}}} {\Vert{}\mathbf{v} \times \mathbf{a}\Vert{}^2}$$
-
+> [!info]- Can be proven with the jerk vector and this dot-product: $\mathbf{v} \times \mathbf{a} = (v a_N)\mathbf{B}$
 ### Derivatives:
 #### Of the Tangent Vector:
 $$ \dot{{\bf T}} = \kappa v \, {\bf N}$$
@@ -132,4 +130,32 @@ $$ \dot{{\bf N}} =  v\left(\tau \mathbf{B} -\kappa \mathbf{T}\right)$$
 > [!info]- Can be proved by the derivative of the Principal Normal Unit Vector in respect to arc-length and the chain rule.
 > $$ -\kappa \mathbf{T} + \tau \mathbf{B} = \frac{d{\bf N}}{ds} \implies -\kappa \mathbf{T} + \tau \mathbf{B} = \frac{d{\bf N}}{dt}\frac{dt}{ds} \iff \dot{{\bf N}} =  v\left(\tau \mathbf{B} -\kappa \mathbf{T}\right)$$
 
-### Expressing Accelaration:
+### Expressing Acceleration:
+Acceleration in a curvilinear path can be expressed as follows:
+$$\mathbf{a} = a_t \, \mathbf{T} + a_n \, \mathbf{N} = a_t \, \hat{\mathbf{u}}_t + a_n \, \hat{\mathbf{u}}_n$$
+The scalars $a_t$ and $a_n$ have these formulas respectively:
+- $a_t = \dot{v} = \ddot{s}$ , (tangential acceleration)
+- $a_n = \kappa v^2 = \frac{v^2}{\rho}$ 
+
+>[!warning] 
+>The scalar $a_t$ is the tangential acceleration. Meaning it is the rate of change in magnitude of the velocity vector $v$.
+
+> [!info]- Can be proven by taking the derivative of velocity in respect of time $t$.
+> $$\mathbf{v}(t) = v(t)\mathbf{T}(t)$$
+> Taking the derivative of the above equation we have:
+> $$\mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = \frac{dv}{dt}\mathbf{T} + v\frac{d\mathbf{T}}{dt}$$
+> We can create a substitution if we use the chain rule:
+> $$\frac{d\mathbf{T}}{dt} = \frac{d\mathbf{T}}{ds}\frac{ds}{dt} = (\kappa \mathbf{N})v = \kappa v \mathbf{N}$$
+> And then:
+> $$\mathbf{a}(t) = \left(\frac{dv}{dt}\right)\mathbf{T} + (\kappa v^2)\mathbf{N}$$
+> 
+> > [!warning] 
+> > See that $v(t)$ here was the magnitude of the Velocity Vector and not the Vector itself. So in the end we have the change of the tangential velocity, not of the whole velocity vector.
+
+We can find the above scalars with other more practical formulas:
+$$a_t = \frac{\mathbf{v}\cdot\mathbf{a}}{v}$$
+> [!info]- Can be proven by solving for $a_t$ from the dot-product: $\mathbf{v}\cdot\mathbf{a}$
+
+$$a_n = \frac{\Vert{} \mathbf{v}\times\mathbf{a} \Vert{}}{v}$$
+> [!info]- Can be proven by solving for $a_t$ from the cross-product: $\mathbf{v}\times\mathbf{a}$
+
