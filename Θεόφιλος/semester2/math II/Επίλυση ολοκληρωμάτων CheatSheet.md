@@ -27,7 +27,7 @@ $$\int f(\sin x, \cos x)dx$$
 
 $$u = \tan\frac{x}{2}$$
 $$dx = \frac{2du}{1 + u^2}$$
-$$\sin x = \frac{2u}{1+u^2}, \cos x = \frac{{1-u^2}}{1+u^2}, \tan x = \frac{2u}{x-u^2}$$
+$$\sin x = \frac{2u}{1+u^2}, \cos x = \frac{{1-u^2}}{1+u^2}, \tan x = \frac{2u}{1-u^2}$$
 Σε περίπτωση που έχεις δύναμη εις την δύο, τότε:
 $$\int f(\sin^2x, \cos^2x)dx$$τότε κάνεις την παρακάτω αντικατάσταση:
 $$u = \tan x$$

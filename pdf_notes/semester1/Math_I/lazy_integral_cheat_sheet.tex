@@ -1,0 +1,125 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setotherlanguage{english}
+\setmainfont{LiberationSans} % or another font that supports Greek
+\usepackage{amsmath, amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage[a4paper, margin=1.8cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{} 
+\fancyfoot[L]{\footnotesize Theolaos}
+\fancyfoot[R]{\small \thepage}
+
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
+
+\setlist[itemize]{left=1.5em, label=\textbullet}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+% ΕΡΓΑΣΙΑ_1_Ερ-ΜΚΕΡ-ΣΑΒΒΙΔΗΣ_ΘΕΟΦΙΛΟΣ_ΝΙΚΟΛΑΟΣ
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Cheat Sheet}\\[1ex]
+    \large Ολοκληρωμάτων
+\end{center}
+
+\section*{Μέθοδοι Ολοκλήρωσης}
+
+\subsection*{Κατά παράγοντες:}
+\[
+\int f(x)g(x)\,dx = \int F'(x)g(x)\,dx = F(x)g(x) - \int F(x)g'(x)\,dx
+\]
+
+\subsection*{Με αντικατάσταση:}
+Έστω $f(x) = u$, τότε:
+\[
+\frac{du}{dx} = u' \iff dx = \frac{du}{u'}
+\]
+και απλά αντικαθιστώ στη συνέχεια στο ολοκλήρωμα.
+
+Κάποιες φορές στα κλάσματα μπορώ να αντικαταστήσω με σκοπό να βγάλω τη μεταβλητή στον αριθμητή ή και στον παρονομαστή.
+
+\paragraph{Παράδειγμα:}
+\[
+\int \frac{x}{\sqrt{1-x^2}}\,dx
+\]
+Έστω $u = 1-x^2$, οπότε $du = -2x\,dx \iff dx = -\frac{du}{2x}$.
+
+Άρα:
+\[
+\int \frac{x}{\sqrt{u}} \cdot \frac{du}{-2x} = \int \frac{1}{\sqrt{u}} \cdot \frac{du}{-2} = -\int \frac{du}{2\sqrt{u}}
+\]
+Και φυσικά η λύση θα είναι:
+\[
+-\sqrt{u} + C
+\]
+
+\subsection*{Τριγωνομετρικά Ολοκληρώματα}
+
+\subsubsection*{Περίπτωση μονών δυνάμεων:}
+Σε περίπτωση που έχουμε μονές δυνάμεις, π.χ. $\int f(\sin x, \cos x)\,dx$, τότε μπορούμε να εφαρμό\-σουμε την παρακάτω αντικατάσταση:
+\[
+u = \tan\frac{x}{2}
+\]
+\[
+dx = \frac{2\,du}{1 + u^2}, \quad \sin x = \frac{2u}{1+u^2}, \quad \cos x = \frac{1-u^2}{1+u^2}, \quad \tan x = \frac{2u}{1-u^2}
+\]
+
+\subsubsection*{Περίπτωση δυνάμεων εις την δευτέρα:}
+Σε περίπτωση που έχεις δύναμη εις την δύο, π.χ. $\int f(\sin^2 x, \cos^2 x)\,dx$, τότε κάνεις την παρακά\-τω αντικατάσταση:
+\[
+u = \tan x
+\]
+\[
+dx = \frac{du}{1+u^2}, \quad \sin^2 x = \frac{u^2}{1+u^2}, \quad \cos^2 x = \frac{1}{1+u^2}
+\]
+
+\subsection*{Τριγωνομετρικές Ταυτότητες}
+\[
+\sin^2 x = \frac{1}{2}(1-\cos 2x)
+\]
+\[
+\cos^2 x = \frac{1}{2}(1+\cos 2x)
+\]
+\[
+\sin x \cos y = \frac{1}{2}(\sin(x-y) + \sin(x+y))
+\]
+\[
+\cos x \cos y = \frac{1}{2}(\cos(x-y) + \cos(x+y))
+\]
+\[
+\sin x \sin y = \frac{1}{2}(\cos(x-y) - \cos(x+y))
+\]
+\[
+\cos(x+y) = \cos x \cos y - \sin x \sin y
+\]
+\[
+\sin(x+y) = \sin x \cos y + \cos x \sin y
+\]
+
+\subsection*{Βασικά Αόριστα Ολοκληρώματα}
+Κάποια εξτρά χρήσιμα βασικά αόριστα ολοκληρώματα, πέρα από τα γνωστά, είναι:
+\[
+\int a^x\,dx = \frac{a^x}{\ln a} + C
+\]
+\[
+\int \frac{1}{\cos^2 x}\,dx = \tan x + C
+\]
+\[
+\int \frac{1}{\sqrt{1-x^2}}\,dx = \arcsin x + C
+\]
+\[
+\int \frac{1}{1+x^2}\,dx = \arctan x + C
+\]
+
+\end{document}

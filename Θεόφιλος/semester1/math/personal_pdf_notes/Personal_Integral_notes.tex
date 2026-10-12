@@ -1,0 +1,341 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setotherlanguage{english}
+\setmainfont{LiberationSans} % or another font that supports Greek
+\usepackage{amsmath, amssymb}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage[a4paper, margin=1.8cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{} 
+\fancyfoot[L]{\footnotesize Theolaos}
+\fancyfoot[R]{\small \thepage}
+
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
+
+\setlist[itemize]{left=1.5em, label=\textbullet}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Σημειώσεις Μαθηματικα Ι}\\[1ex]
+    \large Μέθοδοι Ολοκλήρωσεις \\
+    \normalsize Βρες και άλλες σημειώσεις: \url{https://github.com/theolaos/simeiwseis}
+\end{center}
+
+\subsection*{Κατά παράγοντες:}
+\[
+\int f(x)g(x)\,dx = \int F'(x)g(x)\,dx = F(x)g(x) - \int F(x)g'(x)\,dx
+\]
+
+\subsection*{Με αντικατάσταση:}
+Έστω $f(x) = u$, τότε:
+\[
+\frac{du}{dx} = u' \iff dx = \frac{du}{u'}
+\]
+και απλά αντικαθιστώ στη συνέχεια στο ολοκλήρωμα.
+
+ΠΡΟΣΟΧΗ: αντικαταστείς μέσα στο ολοκλήρωμα είτε με τον στόχο για απαλοιφή του $u'$ ή για να αντικαταστήσεις 
+στο αποτέλεσμα του $u'$ να το αντικαταστήσεις με $u$ που είχες θέσει. π.χ. 
+\[
+\int \cos\sqrt{x}\,dx \underset{u = \sqrt{x}}{=} \int \cos{u}\,2u\,du 
+\]
+που έπειτα το παραπάνω μπορείς να το λύσεις με κατά παράγοντες.
+
+\subsubsection*{Μαθηματικό τρικ (trick):}
+
+Κάποιες φορές στα κλάσματα μπορώ να αντικαταστήσω με σκοπό να βγάλω τη μεταβλητή στον αριθμητή ή και στον παρονομαστή.
+
+\paragraph{Παράδειγμα:}
+\[
+\int \frac{x}{\sqrt{1-x^2}}\,dx
+\]
+Έστω $u = 1-x^2$, οπότε $du = -2x\,dx \iff dx = -\frac{du}{2x}$.
+
+Άρα:
+\[
+\int \frac{x}{\sqrt{u}} \cdot \frac{du}{-2x} = \int \frac{1}{\sqrt{u}} \cdot \frac{du}{-2} = -\int \frac{du}{2\sqrt{u}}
+\]
+Και φυσικά η λύση θα είναι:
+\[
+-\sqrt{u} + C
+\]
+
+\subsubsection*{Μαθηματικό τρικ (trick):}
+
+Επίσης σαν τρικ μπορείς να χρησιμοποίησεις την παραγοντοποίηση υπερ σου για να πετύχεις τον παραπάνω τρικ.
+
+\paragraph{Παράδειγμα:}
+\[
+\int \frac{1}{x^2\sqrt{x^2 - 1}}\,dx
+\]
+
+Βλέπουμε πως πάνω στον αριθμητή δεν έχουμε κάποιο $x^2$ για να μας σώσει σε κάποια αντικα\-τάσταση
+αλλά θα μπορούσαμε να παραγοντοποίησουμε το $x^2-1$ έτσι ώστε να μπορούμε να πάμε ένα $x^a$ κάπως στον αριθμητή ώστε να μας βοηθήσει 
+στην μελλοντική αντικατάσταση.
+
+Άρα:
+\[
+\int \frac{1}{x^2\sqrt{x^2\left(1 - \frac{1}{x^2}\right)}}\,dx = \int \frac{1}{x^3\sqrt{1 - x^{-2}}}\,dx
+\]
+
+Εδώ ξεκινάει το τρικ. Άμα θέσουμε $u=x^{-2}$, μπορούμε να φανταστούμε πως η παράγωγος του θα είναι $u' = -2x^{-2 - 1} = -2x^{-3}$.
+Άρα άμα προχωρήσω με την αντικατάσταση θα έχω:
+
+\[
+\int \frac{1}{x^3\sqrt{1 - u}}\,\frac{du}{-2x^{-3}} = \int \frac{x^3}{-2x^3\sqrt{1 - u}}\,du = \int \frac{1}{-2\sqrt{1 - u}}\,du
+\]
+
+Οπότε απλοποιούνται και έχουμε ένα σχετικά απλό ολοκλήρωμα.
+
+\subsubsection*{Μαθηματικό τρικ (trick):}
+
+Μπορείς να κάνεις αντικατάσταση για μεταβλητής για να δημιουργήσεις μια παραγοντοποίηση που μπορεί να σε φέρει πιο κοντά σε κάποιον
+γνωστό βασικό τύπο ολοκλήρωσεις
+
+\paragraph{Παράδειγμα:}
+Δες αυτήν την \hyperlink{target_below}{απόδειξη}. 
+
+\subsection*{Ολοκληρώματα Ρητών Συναρτήσεων}
+\hrule
+\vspace{0.5em}
+
+Αυτά τα ολοκληρώματα έχουν αυτήν την μορφή $\int \frac{P(x)}{Q(x)}\,dx$ μορφή, όπου $P(x)$ και $Q(x)$ είναι πολυώνυμα.
+
+\
+
+Άμα ο βαθμός του $P(x)$ είναι μεγαλύτερος από αυτόν του $Q(x)$ τότε κάνουμε την πολυώνυμική διαίρεση και θα έχουμε με τον τύπο
+της ευκλείδιας διαίρεσης:
+
+\[
+\Delta(x) = \delta(x)\cdot\pi(x) + \upsilon(x) \underset{\Delta(x) = P(x)\, \delta(x) = Q(x)}{\text{και άρα}} \int\frac{P(x)}{Q(x)}\,dx = \int\frac{Q(x)\cdot\pi(x) + \upsilon(x)}{Q(x)} = \int \pi(x) + \frac{\upsilon(x)}{Q(x)}\,dx
+\]
+
+Όπου το $\pi(x)$ το λύνουμε με την ιδιότητα της γραμμικότητας, και για το κλάσμα κάνουμε τα παρακάτω βήματα:
+
+\begin{itemize}
+    \item Βρίσκω τις ρίζες $\rho$ του $Q(x)$
+    \item Αναλύω σε περιπτώσεις τις ρίζες του $Q(x)$
+    \begin{itemize}
+        \item Για κάθε μονή πραγματική ρίζα $\rho$ δημιουργώ αυτό το κλάσμα: $\frac{A}{x-\rho}$
+        \item Για κάθε άλλη πραγματική ρίζα $\rho$ με πολλαπλότητα $\kappa$: $\frac{A_1}{x-\rho} + \frac{A_2}{(x-\rho)^2} + \dots + \frac{A_\kappa}{(x-\rho)^\kappa}$
+        \item Για κάθε φανταστική ρίζα $\rho$ δημιουργώ αυτό το κλάσμα: $\frac{A}{ax^2 + bx + c}$
+        \item Για κάθε φανταστική ρίζα $\rho$ με πολλαπλότητα $\kappa$: $ \frac{A_1 x + B_1}{ax^2 + bx + c} + \frac{A_2 x + B_2}{(ax^2 + bx + c)^2} + \dots + \frac{A_k x + B_k}{(ax^2 + bx + c)^{\kappa}}$
+    \end{itemize}
+    \subitem ΠΡΟΣΟΧΗ: Τα $A$ που γράφω είναι σταθερές τιμές, και διαφορετικά μεταξύ τους!
+    \item Βρίσκεις τις σταθερές από τα κλάσματα με σύστημα ή με την μέθοδο/τύπο του Heavyside (καλύτερα με σύστημα άμα Μαθ. Ι)
+    \item Με την ιδιότητα της γραμμικότητας μπορείς να λύσεις τα απλοποιημένα ολοκληρώματα.
+\end{itemize}
+
+Απλό παράδειγμα:
+\[
+\int \frac{x+4}{x^2-4x+3} \, dx,
+\frac{x+4}{(x-1)(x-3)} = \frac{A}{x-1} + \frac{B}{x-3} = \frac{(A+B)x+(-3A-B)}{(x-1)(x-3)}
+\]
+
+\noindent
+\begin{minipage}[t]{0.42\textwidth}
+\[
+\begin{aligned}
+&\begin{cases} A + B = 1 \\ -3A - B = 4 \end{cases} \\[10pt]
+&\begin{cases} A = -\frac{5}{2} \\[6pt] B = \frac{7}{2} \end{cases}
+\end{aligned}
+\]
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.55\textwidth}
+\[
+\begin{aligned}
+\int \frac{x+4}{x^2-4x+3} \, dx &= \int \left( -\frac{5}{2}\frac{1}{x-1} + \frac{7}{2}\frac{1}{x-3} \right) dx \\
+&= -\frac{5}{2} \int \frac{1}{x-1} \, dx + \frac{7}{2} \int \frac{1}{x-3} \, dx \\
+&= -\frac{5}{2} \ln|x-1| + \frac{7}{2} \ln|x-3| + c
+\end{aligned}
+\]
+\end{minipage}
+
+\subsubsection*{Περιπτώσεις όταν Φανταστική Ρίζα}
+
+Σε αυτήν την περίπτωση αναφέρομαι στο πως να λυθεί το ολοκλήρωμα που έχει στον παρονο\-μαστή του τριώνυμο που
+έχει φανταστική ρίζα (πιθανότατα να εμφανιστεί από την παραπάνω λύση).
+
+\begin{itemize}
+    \item \textbf{Δημιουργία Παραγώγου}\\
+    Ουσιαστηκά θες να δημιουργήσεις στον αριθμητή το αποτέλεσμα της παραγώγισης του παρανομαστή. Άμα το κάνεις αυτό 
+    το αποτέλεσμα θα είναι ο φυσικός λαγάριθμος.
+
+    \item \textbf{Συμπλήρωση Τετραγώνου στον Παρανομαστή}\\
+    Προσπαθείς να φέρεις τον παρανομαστή σε μορφή $(A+B)^2 + C$. Παρακάτω είναι μια περίπτωση αλλά με διαφορετικές αποδείξεις. 
+\end{itemize}
+\vspace{-0.5em}
+
+\hypertarget{target_below}{}
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\begin{align*}
+\int \frac{1}{x^2 + A} \, dx 
+&= \int \frac{1}{Au^2 + A} \cdot \sqrt{A} \, du \\
+\left[\text{\scriptsize \begin{tabular}{@{}l@{}}
+Έστω $x^2 = A u^2$ \\
+$dx = \sqrt{A} \, du$
+\end{tabular}}\right] 
+&= \sqrt{A} \int \frac{1}{A(u^2 + 1)} \, du \\
+&= \frac{\sqrt{A}}{A} \int \frac{1}{u^2 + 1} \, du \\
+&= \frac{\sqrt{A}}{A} \arctan(u) + C \\
+&= \frac{\sqrt{A}}{A} \arctan\left( \frac{x}{\sqrt{A}} \right) + C
+\end{align*}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.4\textwidth}
+\begin{align*}
+\int \frac{1}{x^2 + a^2} \, dx &= \frac{1}{a^2} \int \frac{1}{\left(\frac{x}{a}\right)^2 + 1} \, dx \\
+\left[\text{\scriptsize \begin{tabular}{@{}l@{}}
+Έστω $u = \frac{x}{a}$ \\
+$dx = a \, du$
+\end{tabular}}\right]  
+&= \frac{1}{a^2} \int \frac{1}{u^2 + 1} (a \, du) \\
+&= \frac{1}{a} \int \frac{1}{u^2 + 1} \, du \\
+&= \frac{1}{a} \arctan(u) + C \\
+&= \frac{1}{a} \arctan\left(\frac{x}{a}\right) + C 
+\end{align*}
+\end{minipage}
+
+
+
+\subsection*{Βασικά Τριγωνομετρικά Ολοκληρώματα}
+\hrule
+\vspace{0.5em}
+\subsubsection*{Περίπτωση μονών δυνάμεων:}
+Σε περίπτωση που έχουμε μονές δυνάμεις, π.χ. $\int f(\sin x, \cos x)\,dx$, τότε μπορούμε να εφαρμό\-σουμε την παρακάτω αντικατάσταση:
+\[
+u = \tan\frac{x}{2}
+\]
+\[
+dx = \frac{2\,du}{1 + u^2}, \quad \sin x = \frac{2u}{1+u^2}, \quad \cos x = \frac{1-u^2}{1+u^2}, \quad \tan x = \frac{2u}{1-u^2}
+\]
+
+\subsubsection*{Περίπτωση δυνάμεων εις την δευτέρα:}
+Σε περίπτωση που έχεις δύναμη εις την δύο, π.χ. $\int f(\sin^2 x, \cos^2 x)\,dx$, τότε κάνεις την παρακά\-τω αντικατάσταση:
+\[
+u = \tan x
+\]
+\[
+dx = \frac{du}{1+u^2}, \quad \sin^2 x = \frac{u^2}{1+u^2}, \quad \cos^2 x = \frac{1}{1+u^2}
+\]
+
+
+\subsection*{Υπερβολικά τριγωνομετρικά ολοκληρώματα}
+\hrule
+\vspace{0.5em}
+\subsubsection*{Τριγωνομετρικές \& Υπερβολικές Ορισμοί}
+\[
+\begin{array}{rll}
+\text{Υπερβ. Ημίτονο:} & \sinh x = \dfrac{e^x - e^{-x}}{2} & : \mathbb{R} \to \mathbb{R} \\[1.5ex]
+\text{Υπερβ. Συνημίτονο:} & \cosh x = \dfrac{e^x + e^{-x}}{2} & : \mathbb{R} \to [1, +\infty) \\[1.5ex]
+\text{Υπερβ. Εφαπτομένη:} & \tanh x = \dfrac{e^x - e^{-x}}{e^x + e^{-x}} & : \mathbb{R} \to (-1, 1) \\[1.5ex]
+\text{Υπερβ. Συνεφαπτομένη:} & \coth x = \dfrac{e^x + e^{-x}}{e^x - e^{-x}} & : \mathbb{R}^* \to (-\infty, -1) \cup (1, +\infty)
+\end{array}
+\]
+
+\subsubsection*{Τριγωνομετρικές \& Υπερβολικές Αντικαταστάσεις}
+\[
+\begin{array}{cccc}
+\toprule
+\text{Ολοκλήρωμα} & \text{Αντικατάσταση} & \text{Ρίζα} & \text{Διαφορικό ($dx$)} \\ 
+\midrule
+\int f(x, \sqrt{a^2 - x^2})\,dx & x = a \sin u & \sqrt{a^2 - x^2} = a \cos u & dx = a \cos u \, du \\[1.2ex]
+\int f(x, \sqrt{a^2 + x^2})\,dx & x = a \sinh u & \sqrt{a^2 + x^2} = a \cosh u & dx = a \cosh u \, du \\[1.2ex]
+\int f(x, \sqrt{x^2 - a^2})\,dx & x = a \cosh u & \sqrt{x^2 - a^2} = a \sinh u & dx = a \sinh u \, du \\
+\bottomrule
+\end{array}
+\]
+
+\subsection*{Υπόλοιπα τριγωνομετρικά ολοκληρώματα}
+\hrule
+\vspace{0.5em}
+\subsubsection*{Ρίζα άθροισμα τετραγώνου ανεξάρτητης μεταβλητής και σταθεράς τιμή:}
+Στην περίπτωση που βρεις $\sqrt{(bx)^2 - a^2}$, τότε μπορείς θέσεις τα παρακάτω για να κάνεις αντικα\-τάσταση:
+
+\[
+x = \frac{a}{b} \sec \theta,\ \ \ dx = \frac{a}{b}\sec\theta\tan\theta d\theta
+\]
+
+Και μετά μπορείς να χρησιμοποίησεις την ταυτότητα:
+\[
+\sec^2 \theta - 1 = \tan^2\theta
+\]
+
+Έπειτα, όταν θες να γυρίσεις πίσω με το $x$, πρέπει να σκεφτείς πως το $\sec\theta = \frac{\text{Υποτείνουσα}}{\text{προσκείμενη}} = \frac{bx}{a}$
+άρα μπορούμε να φτιάξουμε κάποιες ταυτότητες αντικατάστασης όπως:
+\[
+\sin\theta = \frac{b\sqrt{(bx)^2 + a^2}}{bx}
+\]
+\[
+\cos\theta = \frac{a}{bx}
+\]
+\[
+\tan\theta = \frac{\sqrt{(bx)^2 + a^2}}{a}
+\]
+\[
+\theta = \cos^{-1}\left(\frac{a}{bx}\right) \ \text{ή}\ \ \theta = \sec^{-1}\left(\frac{bx}{a}\right) 
+\]
+
+
+\subsection*{Τριγωνομετρικές Ταυτότητες}
+\hrule
+\vspace{0.5em}
+\[
+\sin^2 A = \frac{1}{2}(1-\cos 2A)
+\]
+\[
+\cos^2 A = \frac{1}{2}(1+\cos 2A)
+\]
+\[
+\cos(A+B) = \cos A \cos B - \sin A \sin B
+\]
+\[
+\sin(A+B) = \sin A \cos B + \cos A \sin B
+\]
+\[
+\sin A \cos B = \frac{1}{2}(\sin(A-B) + \sin(A+B))
+\]
+\[
+\cos A \cos B = \frac{1}{2}(\cos(A-B) + \cos(A+B))
+\]
+\[
+\sin A \sin B = \frac{1}{2}(\cos(A-B) - \cos(A+B))
+\]
+
+
+\subsection*{Βασικά Αόριστα Ολοκληρώματα}
+\hrule
+\vspace{0.5em}
+Κάποια εξτρά χρήσιμα βασικά αόριστα ολοκληρώματα, πέρα από τα γνωστά, είναι:
+\[
+\int a^x\,dx = \frac{a^x}{\ln a} + C
+\]
+\[
+\int \frac{1}{\cos^2 x}\,dx = \tan x + C
+\]
+\[
+\int \frac{1}{\sqrt{1-x^2}}\,dx = \arcsin x + C
+\]
+\[
+\int \frac{1}{1+x^2}\,dx = \arctan x + C
+\]
+\[
+\int \frac{1}{x\sqrt{x^2-1}}\,dx = \sec^{-1} x + C
+\]
+
+
+\end{document}
