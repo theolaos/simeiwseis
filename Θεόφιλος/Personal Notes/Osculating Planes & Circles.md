@@ -1,3 +1,5 @@
+#OMFES #FirstChapt
+
 For reading simplicity I will refer to a vector by making it bold:
 - ${\bf r}=\vec{r}$ 
 - $r=\Vert{} \vec{r} \Vert{}$
@@ -89,7 +91,7 @@ ___
 Before we continue, because we are working with time, we can define speed and accelaration. Previously we traversed the path in equal distances. But now we traverse the path in equal amount of time, meaning that we can accelarate, stop etc.
 
 - ${\bf v}(t) = \dot{{\bf r}}(t)$
-- ${\bf a}(t) = \dot{{\bf v}}(t) = \ddot{{\bf r}}(t)$
+- $\mathbf{a}(t) = \dot{\mathbf{v}}(t) = \ddot{{\bf r}}(t)$
 
 #### We can write out the Tangential Vector by saying:
 $${\bf T} = \hat{{\bf u}}_t = \frac{{\bf v}}{v} $$
